@@ -11,3 +11,8 @@
   height: 1200px;
   overflow: hidden;
 }
+
+form .form-add-item {
+  display: flex;
+  justify-content: center;
+}
