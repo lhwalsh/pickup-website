@@ -1,7 +1,4 @@
-.add-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.form-box {
   border: white;
   border-width: 5px;
   border-style: solid;
@@ -12,7 +9,20 @@
   overflow: hidden;
 }
 
-form .form-add-item {
+.form-box h1 {
+  text-align: center;
+}
+
+.form-box .add-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+form .form-add-item {
+  text-align: right;
+}
+
+form .form-add-item input {
+  margin: 45px 400px 45px 100px;
 }
