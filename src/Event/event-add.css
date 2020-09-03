@@ -1,0 +1,13 @@
+.event-add button {
+  font-size: 100px;
+  align-items: center;
+  border: white;
+  color: white;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 25px;
+  margin: 75px 75px;
+  width: 400px;
+  height: 400px;
+  background-color: #282c34;
+}
