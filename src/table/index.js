@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Event from '../Event'
-import AddButton from '../AddButton'
+import Event from '../Event';
+import Add from '../Add';
 import './index.css';
 
 const BASE_URL = "https://pickup-app-backend.herokuapp.com/api/";
@@ -38,7 +38,7 @@ class Table extends Component {
             <Event event={event} />
           )
         }
-        <AddButton />
+        <Add />
       </div>
     )
   }

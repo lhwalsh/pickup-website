@@ -9,7 +9,6 @@ class Event extends Component {
 
     this.state = {
       showPreview: true,
-      test: "Test"
     }
 
     this.setShowPreviewTrue = this.setShowPreviewTrue.bind(this);

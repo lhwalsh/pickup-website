@@ -1,9 +1,9 @@
 import React from 'react';
-import './index.css';
+import './button.css';
 
-const AddButton = () =>
+const Button = () =>
   <div className="add-button">
     <button>+</button>
   </div>
 
-export default AddButton;
+export default Button;
