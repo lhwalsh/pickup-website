@@ -1,9 +1,9 @@
 import React from 'react';
 import './button.css';
 
-const Button = () =>
+const Button = ({ setShowAddButtonFalse }) =>
   <div className="add-button">
-    <button>+</button>
+    <button onClick={setShowAddButtonFalse}>+</button>
   </div>
 
 export default Button;
