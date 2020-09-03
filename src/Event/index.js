@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EventPreview from './event-preview'
 import './index.css'
 
 class Event extends Component {
@@ -28,6 +29,9 @@ class Event extends Component {
 
     return (
       <div>
+        {showPreview
+          ? <EventPreview event={event} setShowPreviewFalse={this.setShowPreviewFalse} />
+        }
       </div>
     )
   }
