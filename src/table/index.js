@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Event from '../Event'
+import EventAdd from '../Event/event-add'
 import './index.css';
 
 const BASE_URL = "https://pickup-app-backend.herokuapp.com/api/";
@@ -23,6 +25,22 @@ class Table extends Component {
     axios(`${BASE_URL}events`)
       .then(result => this.setState({ events: result.data }))
       .catch(error => this.setState({ error }))
+  }
+
+  render() {
+    const { events, error } = this.state;
+
+    return(
+      <div className="table">
+        {error
+          ? "Failed to find events"
+          : events.map(event =>
+            <Event event={event} />
+          )
+        }
+        <EventAdd />
+      </div>
+    )
   }
 }
 
