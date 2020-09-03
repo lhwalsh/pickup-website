@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EventExpanded from './event-expanded'
 import EventPreview from './event-preview'
 import './index.css'
 
@@ -31,6 +32,7 @@ class Event extends Component {
       <div>
         {showPreview
           ? <EventPreview event={event} setShowPreviewFalse={this.setShowPreviewFalse} />
+          : <EventExpanded event={event} setShowPreviewTrue={this.setShowPreviewTrue} />
         }
       </div>
     )
