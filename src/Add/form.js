@@ -37,7 +37,6 @@ const Form = ({ setShowAddButtonTrue }) =>
       </label>
     </form>
     <button onClick={setShowAddButtonTrue}>Submit</button>
-    Got Here
   </div>
 
 export default Form;
