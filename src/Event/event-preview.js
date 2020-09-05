@@ -2,7 +2,7 @@ import React from 'react';
 import './event-preview.css';
 
 const EventPreview = ({ event, setShowPreviewFalse }) =>
-  <div key={event.id} className="event-preview">
+  <div className="event-preview">
     <button onClick={setShowPreviewFalse}>Expand</button>
     <h1 className="item">
       {event.title}

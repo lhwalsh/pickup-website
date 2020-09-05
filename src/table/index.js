@@ -35,7 +35,9 @@ class Table extends Component {
         {error
           ? "Failed to find events"
           : events.map(event =>
-            <Event event={event} />
+            <div key={event.id}>
+              <Event event={event} />
+            </div>
           )
         }
         <Add />

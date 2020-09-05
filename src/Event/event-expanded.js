@@ -2,7 +2,7 @@ import React from 'react';
 import './event-expanded.css';
 
 const EventExpanded = ({ event, setShowPreviewTrue }) =>
-  <div key={event.id} className="event-expanded">
+  <div className="event-expanded">
     <button onClick={setShowPreviewTrue}>Close</button>
     <h1 className="event-item">
       {event.title}
