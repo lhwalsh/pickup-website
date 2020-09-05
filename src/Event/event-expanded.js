@@ -11,10 +11,22 @@ const EventExpanded = ({ event, setShowPreviewTrue }) =>
       {event.description}
     </span>
     <span style={{ fontSize: 25 }} className="item">
+      {event.people}
+    </span>
+    <span style={{ fontSize: 25 }} className="item">
       {event.location}
     </span>
     <span style={{ fontSize: 25 }} className="item">
-      {event.people}
+      {event.date}
+    </span>
+    <span style={{ fontSize: 25 }} className="item">
+      {event.start_time}
+    </span>
+    <span style={{ fontSize: 25 }} className="item">
+      {event.end_time}
+    </span>
+    <span style={{ fontSize: 25 }} className="item">
+      {event.category}
     </span>
   </div>
 
