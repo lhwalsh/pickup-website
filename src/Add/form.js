@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import TimePicker from 'rc-time-picker';
+import moment from 'moment'
+import 'rc-time-picker/assets/index.css';
 import axios from 'axios';
 import './form.css'
 
 const BASE_URL = "https://pickup-app-backend.herokuapp.com/api/";
+
+const format = 'hh:mm a';
+const now = moment().hour(0).minute(0);
+
+const formatTime = (moment) =>
+  moment.utcOffset("-07:00").format("HH:mm:00")
 
 class Form extends Component {
   constructor(props) {
@@ -21,6 +30,7 @@ class Form extends Component {
 
     this.createEvent = this.createEvent.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.changeStartTime = this.changeStartTime.bind(this)
   }
 
   createEvent() {
@@ -34,12 +44,17 @@ class Form extends Component {
       end_time,
       category
     } = this.state;
+
     this.props.setShowAddButtonTrue();
-    return (axios.post(`${BASE_URL}events?title=${title}&description=${description}&people=${people}&location=${location}&date=${date}&start_time=${start_time}&end_time=${end_time}&category=${category}`))
+    return (axios.post(`${BASE_URL}events?title=${title}&description=${description}&people=${people}&location=${location}&date=${date}&start_time=${formatTime(start_time)}&end_time=${end_time}&category=${category}`))
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  changeStartTime(value) {
+    this.setState({ start_time: value })
   }
 
   render() {
@@ -63,14 +78,23 @@ class Form extends Component {
             Location:
             <input type="text" name="location" value={this.state.location} onChange={this.handleChange} />
           </label>
-          {/* TODO: Install datepicker package */}
           <label className="form-add-item">
             Date:
             <input type="text" name="date" value={this.state.date} onChange={this.handleChange} />
           </label>
           <label className="form-add-item">
             Start Time:
-            <input type="text" name="start_time" value={this.state.start_time} onChange={this.handleChange} />
+            <TimePicker
+              name="start_time"
+              value={this.state.start_time}
+              onChange={this.changeStartTime}
+              className="time-picker"
+              showSecond={false}
+              defaultValue={now}
+              format={format}
+              use12Hours
+              inputReadOnly
+            />
           </label>
           <label className="form-add-item">
             End Time:

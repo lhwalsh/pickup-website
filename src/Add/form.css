@@ -26,3 +26,7 @@ form .form-add-item {
 form .form-add-item input {
   margin: 45px 400px 45px 100px;
 }
+
+form .form-add-item .time-picker input {
+  margin: 0em;
+}
