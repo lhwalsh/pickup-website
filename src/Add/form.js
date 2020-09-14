@@ -10,8 +10,10 @@ const BASE_URL = "https://pickup-app-backend.herokuapp.com/api/";
 const format = 'hh:mm a';
 const now = moment().hour(0).minute(0);
 
-const formatTime = (moment) =>
-  moment.utcOffset("-07:00").format("HH:mm:00")
+const formatTime = (moment) => {
+  if (moment == null) return ""
+  return (moment.utcOffset("-07:00").format("HH:mm:00"))
+}
 
 class Form extends Component {
   constructor(props) {
