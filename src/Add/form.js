@@ -20,15 +20,9 @@ class Form extends Component {
     super(props)
 
     this.state = {
-      title: '',
-      description: '',
-      people: '',
-      location: '',
-      date: '',
-      start_time: '',
-      end_time: '',
-      category: '',
-    };
+      start_time: null,
+      end_time: null
+    }
 
     this.createEvent = this.createEvent.bind(this)
     this.handleChange = this.handleChange.bind(this)
