@@ -23,13 +23,14 @@ class Add extends Component {
   }
 
   render() {
+    const { addEvent } = this.props
     const { showAddButton } = this.state
 
     return (
       <div>
         {showAddButton
           ? <Button setShowAddButtonFalse={this.setShowAddButtonFalse} />
-          : <Form setShowAddButtonTrue={this.setShowAddButtonTrue} />
+          : <Form setShowAddButtonTrue={this.setShowAddButtonTrue} addEvent={addEvent} />
         }
       </div>
     )

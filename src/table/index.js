@@ -16,6 +16,7 @@ class Table extends Component {
 
     this.fetchEvents = this.fetchEvents.bind(this)
     this.removeEvent = this.removeEvent.bind(this)
+    this.addEvent = this.addEvent.bind(this)
   }
 
   componentDidMount() {
@@ -32,6 +33,11 @@ class Table extends Component {
     this.setState({ events: this.state.events.filter((event) => event.id !== id) })
   }
 
+  addEvent = (event) => {
+    const { events } = this.state
+    this.setState({ events: [...events, event] })
+  }
+
   render() {
     const { events, error } = this.state;
 
@@ -45,7 +51,7 @@ class Table extends Component {
             </div>
           )
         }
-        <Add />
+        <Add addEvent={this.addEvent} />
       </div>
     )
   }

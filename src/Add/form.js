@@ -37,6 +37,8 @@ class Form extends Component {
   }
 
   createEvent() {
+    const { addEvent } = this.props
+
     const {
       start_time,
       end_time
@@ -57,7 +59,7 @@ class Form extends Component {
     return (axios.post(
       `${BASE_URL}events/`,
       post_params
-    ))
+    )).then(response => addEvent(response.data))
   }
 
   changeStartTime(value) {
