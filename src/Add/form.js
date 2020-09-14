@@ -59,6 +59,9 @@ class Form extends Component {
     this.setState({ start_time: value })
   }
 
+  changeEndTime(value) {
+    this.setState({ end_time: value })
+  }
   render() {
     return(
       <div className="form-box">
@@ -100,7 +103,17 @@ class Form extends Component {
           </label>
           <label className="form-add-item">
             End Time:
-            <input type="text" name="end_time" value={this.state.end_time} onChange={this.handleChange} />
+            <TimePicker
+              name="end_time"
+              value={this.state.end_time}
+              onChange={this.changeEndTime}
+              className="time-picker"
+              showSecond={false}
+              defaultValue={now}
+              format={format}
+              use12Hours
+              inputReadOnly
+            />
           </label>
           <label className="form-add-item">
             Category:
