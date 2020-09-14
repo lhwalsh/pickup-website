@@ -15,8 +15,7 @@
 .event-expanded .item {
 }
 
-.event-expanded button {
+.event-expanded .compress {
   align-self: flex-end;
-  border-radius: 25px;
   margin: 15px 15px;
 }

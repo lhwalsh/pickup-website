@@ -15,8 +15,7 @@
 .event-preview .item {
 }
 
-.event-preview button {
+.event-preview .expand {
   align-self: flex-end;
-  border-radius: 25px;
   margin: 15px 15px;
 }

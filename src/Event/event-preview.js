@@ -1,9 +1,10 @@
 import React from 'react';
+import { FaExpandAlt } from 'react-icons/fa';
 import './event-preview.css';
 
 const EventPreview = ({ event, setShowPreviewFalse }) =>
   <div className="event-preview">
-    <button onClick={setShowPreviewFalse}>Expand</button>
+    <FaExpandAlt onClick={setShowPreviewFalse} className="expand" />
     <h1 className="item">
       {event.title}
     </h1>

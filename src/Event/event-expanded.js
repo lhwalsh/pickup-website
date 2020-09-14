@@ -1,9 +1,10 @@
 import React from 'react';
+import { FaCompressAlt } from 'react-icons/fa';
 import './event-expanded.css';
 
 const EventExpanded = ({ event, setShowPreviewTrue }) =>
   <div className="event-expanded">
-    <button onClick={setShowPreviewTrue}>Close</button>
+    <FaCompressAlt onClick={setShowPreviewTrue} className="compress" />
     <h1 className="event-item">
       {event.title}
     </h1>
