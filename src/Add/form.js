@@ -53,8 +53,11 @@ class Form extends Component {
       category: this.category.current.value
     }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.props.setShowAddButtonTrue();
+    return (axios.post(
+      `${BASE_URL}events/`,
+      post_params
+    ))
   }
 
   changeStartTime(value) {
