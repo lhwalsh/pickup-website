@@ -24,26 +24,34 @@ class Form extends Component {
       end_time: null
     }
 
+    this.title = React.createRef();
+    this.description = React.createRef();
+    this.people = React.createRef();
+    this.location = React.createRef();
+    this.date = React.createRef();
+    this.category = React.createRef();
+
     this.createEvent = this.createEvent.bind(this)
-    this.handleChange = this.handleChange.bind(this)
     this.changeStartTime = this.changeStartTime.bind(this)
+    this.changeEndTime = this.changeEndTime.bind(this)
   }
 
   createEvent() {
     const {
-      title,
-      description,
-      people,
-      location,
-      date,
       start_time,
-      end_time,
-      category
+      end_time
     } = this.state;
 
-    this.props.setShowAddButtonTrue();
-    return (axios.post(`${BASE_URL}events?title=${title}&description=${description}&people=${people}&location=${location}&date=${date}&start_time=${formatTime(start_time)}&end_time=${end_time}&category=${category}`))
-  }
+    const post_params = {
+      title: this.title.current.value,
+      description: this.description.current.value,
+      people: this.people.current.value,
+      location: this.location.current.value,
+      date: this.date.current.value,
+      start_time: formatTime(start_time),
+      end_time: formatTime(end_time),
+      category: this.category.current.value
+    }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
@@ -56,30 +64,31 @@ class Form extends Component {
   changeEndTime(value) {
     this.setState({ end_time: value })
   }
+
   render() {
     return(
       <div className="form-box">
         <h1>Add Event</h1>
         <form className="add-form" onSubmit={this.createEvent}>
-          <label htmlFor="title" className="form-add-item">
+          <label className="form-add-item">
             Title:
-            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+            <input type="text" ref={this.title} />
           </label>
-          <label htmlFor="description" className="form-add-item">
+          <label className="form-add-item">
             Description:
-            <input type="textarea" name="description" value={this.state.description} onChange={this.handleChange} />
+            <input type="textarea" ref={this.description} />
           </label>
           <label className="form-add-item">
             People:
-            <input type="text" name="people" value={this.state.people} onChange={this.handleChange} />
+            <input type="text" ref={this.people} />
           </label>
           <label className="form-add-item">
             Location:
-            <input type="text" name="location" value={this.state.location} onChange={this.handleChange} />
+            <input type="text" ref={this.location} />
           </label>
           <label className="form-add-item">
             Date:
-            <input type="text" name="date" value={this.state.date} onChange={this.handleChange} />
+            <input type="text" ref={this.date} />
           </label>
           <label className="form-add-item">
             Start Time:
@@ -111,7 +120,7 @@ class Form extends Component {
           </label>
           <label className="form-add-item">
             Category:
-            <input type="text" name="category" value={this.state.category} onChange={this.handleChange} />
+            <input type="text" ref={this.category} />
           </label>
           <button type="submit">Submit</button>
         </form>
