@@ -12,9 +12,6 @@
   overflow: hidden;
 }
 
-.event-expanded .item {
-}
-
 .event-expanded .compress {
   align-self: flex-end;
   margin: 15px 15px;
