@@ -1,7 +1,5 @@
 .event-preview {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   border: white;
   border-width: 5px;
   border-style: solid;
@@ -9,13 +7,15 @@
   margin: 75px 75px;
   width: 400px;
   height: 400px;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
 }
 
-.event-preview .item {
+.item {
+  font-size: 40px;
 }
 
-.event-preview .expand {
-  align-self: flex-end;
-  margin: 15px 15px;
+.delete {
+  margin-left: auto;
 }

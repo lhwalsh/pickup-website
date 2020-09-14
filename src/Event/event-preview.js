@@ -1,8 +1,9 @@
 import React from 'react';
+import Delete from '../Delete';
 import { FaExpandAlt } from 'react-icons/fa';
 import './event-preview.css';
 
-const EventPreview = ({ event, setShowPreviewFalse }) =>
+const EventPreview = ({ event, removeEvent, setShowPreviewFalse }) =>
   <div className="event-preview">
     <FaExpandAlt onClick={setShowPreviewFalse} className="expand" />
     <h1 className="item">
@@ -11,6 +12,7 @@ const EventPreview = ({ event, setShowPreviewFalse }) =>
     <span style={{ fontSize: 25 }} className="event-item">
       {event.description}
     </span>
+    <Delete id={event.id} removeEvent={removeEvent} className="delete" />
   </div>
 
 export default EventPreview;

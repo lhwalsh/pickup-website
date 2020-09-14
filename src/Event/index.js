@@ -25,13 +25,13 @@ class Event extends Component {
 
   render() {
     const { showPreview } = this.state;
-    const { event } = this.props;
+    const { event, removeEvent } = this.props;
 
     return (
       <div>
         {showPreview
-          ? <EventPreview event={event} setShowPreviewFalse={this.setShowPreviewFalse} />
-          : <EventExpanded event={event} setShowPreviewTrue={this.setShowPreviewTrue} />
+          ? <EventPreview event={event} removeEvent={removeEvent} setShowPreviewFalse={this.setShowPreviewFalse} />
+          : <EventExpanded event={event} removeEvent={removeEvent} setShowPreviewTrue={this.setShowPreviewTrue} />
         }
       </div>
     )

@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaCompressAlt } from 'react-icons/fa';
+import Delete from '../Delete'
 import './event-expanded.css';
 
-const EventExpanded = ({ event, setShowPreviewTrue }) =>
+const EventExpanded = ({ event, removeEvent, setShowPreviewTrue }) =>
   <div className="event-expanded">
     <FaCompressAlt onClick={setShowPreviewTrue} className="compress" />
     <h1 className="event-item">
@@ -29,6 +30,7 @@ const EventExpanded = ({ event, setShowPreviewTrue }) =>
     <span style={{ fontSize: 25 }}>
       {event.category}
     </span>
+    <Delete id={event.id} removeEvent={removeEvent} />
   </div>
 
 export default EventExpanded;

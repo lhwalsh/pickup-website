@@ -15,6 +15,7 @@ class Table extends Component {
     };
 
     this.fetchEvents = this.fetchEvents.bind(this)
+    this.removeEvent = this.removeEvent.bind(this)
   }
 
   componentDidMount() {
@@ -27,6 +28,10 @@ class Table extends Component {
       .catch(error => this.setState({ error }))
   }
 
+  removeEvent = (id) =>  {
+    this.setState({ events: this.state.events.filter((event) => event.id !== id) })
+  }
+
   render() {
     const { events, error } = this.state;
 
@@ -36,7 +41,7 @@ class Table extends Component {
           ? "Failed to find events"
           : events.map(event =>
             <div key={event.id}>
-              <Event event={event} />
+              <Event event={event} removeEvent={this.removeEvent} />
             </div>
           )
         }
