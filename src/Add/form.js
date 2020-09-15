@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
+import DatePicker from 'react-datepicker';
 import moment from 'moment'
 import 'rc-time-picker/assets/index.css';
+import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import './form.css'
 
@@ -21,7 +23,8 @@ class Form extends Component {
 
     this.state = {
       start_time: null,
-      end_time: null
+      end_time: null,
+      date: null
     }
 
     this.title = React.createRef();
@@ -34,6 +37,7 @@ class Form extends Component {
     this.createEvent = this.createEvent.bind(this)
     this.changeStartTime = this.changeStartTime.bind(this)
     this.changeEndTime = this.changeEndTime.bind(this)
+    this.changeDate = this.changeDate.bind( this )
   }
 
   createEvent() {
@@ -41,7 +45,8 @@ class Form extends Component {
 
     const {
       start_time,
-      end_time
+      end_time,
+      date
     } = this.state;
 
     const post_params = {
@@ -49,7 +54,7 @@ class Form extends Component {
       description: this.description.current.value,
       people: this.people.current.value,
       location: this.location.current.value,
-      date: this.date.current.value,
+      date: date.toString(),
       start_time: formatTime(start_time),
       end_time: formatTime(end_time),
       category: this.category.current.value
@@ -68,6 +73,10 @@ class Form extends Component {
 
   changeEndTime(value) {
     this.setState({ end_time: value })
+  }
+
+  changeDate( value ) {
+    this.setState( {date: value } )
   }
 
   render() {
@@ -93,7 +102,12 @@ class Form extends Component {
           </label>
           <label className="form-add-item">
             Date:
-            <input type="text" ref={this.date} />
+            <DatePicker
+              name="date"
+              selected={ this.state.date }
+              onChange={ this.changeDate }
+              className="date-picker"
+            />
           </label>
           <label className="form-add-item">
             Start Time:
