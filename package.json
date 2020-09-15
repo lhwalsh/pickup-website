@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "cra-template": "1.0.3",
+    "fontsource-baloo-tammudu-2": "^3.0.5",
     "rc-time-picker": "^3.7.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
