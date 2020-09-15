@@ -12,6 +12,6 @@ const deleteEvent = (id, removeEvent) => () => {
 
 
 const Delete = ({ id, removeEvent }) =>
-  <FaTrash className="trash" onClick={deleteEvent(id, removeEvent)} />
+  <FaTrash color="#A30000" className="trash" onClick={deleteEvent(id, removeEvent)} />
 
 export default Delete;
