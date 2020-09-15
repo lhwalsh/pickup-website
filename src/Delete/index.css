@@ -2,3 +2,8 @@
   align-self: flex-end;
   margin: 15px 15px;
 }
+
+.trash:hover {
+  opacity: .7;
+  cursor: pointer;
+}

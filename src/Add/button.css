@@ -2,3 +2,8 @@
   margin-top: 50px;
   size: 500;
 }
+
+.add-button:hover {
+  opacity: .7;
+  cursor: pointer;
+}
