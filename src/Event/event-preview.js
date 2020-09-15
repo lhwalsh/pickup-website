@@ -1,15 +1,14 @@
 import React from 'react';
 import Delete from '../Delete';
-import { FaExpandAlt } from 'react-icons/fa';
+import "fontsource-baloo-tammudu-2/500.css"
 import './event-preview.css';
 
 const EventPreview = ({ event, removeEvent, setShowPreviewFalse }) =>
   <div className="event-preview">
-    <FaExpandAlt onClick={setShowPreviewFalse} className="expand" />
-    <h1 className="item">
+    <span className="title">
       {event.title}
-    </h1>
-    <span style={{ fontSize: 25 }} className="event-item">
+    </span>
+    <span className="description">
       {event.description}
     </span>
     <Delete id={event.id} removeEvent={removeEvent} className="delete" />
