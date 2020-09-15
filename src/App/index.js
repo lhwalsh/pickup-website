@@ -1,14 +1,13 @@
 import React from 'react';
 import Table from '../Table'
+import "fontsource-baloo-tammudu-2/500.css"
 import './index.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Pickup Events</h1>
-        <Table />
-      </header>
+      <h1>Pickup</h1>
+      <Table />
     </div>
   );
 }

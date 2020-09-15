@@ -1,14 +1,18 @@
 .App {
   text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start;
+  background: rgb(34,193,195);
+  background: linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(204,242,244,1) 10%, rgba(255,255,255,1) 18%, rgba(255,255,255,1) 100%);
+}
+
+h1 {
+  margin: 15px 40px 0px 40px;
+  align-self: flex-start;
+  font-size: calc(40px + 2vmin);
   color: white;
+  font-family: "Baloo Tammudu 2";
 }
