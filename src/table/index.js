@@ -28,7 +28,7 @@ class Table extends Component {
 
   fetchEvents = () => {
     axios(`${BASE_URL}events`)
-      .then(result => this.setState({ events: result.data }))
+      .then(result => this.setState({ events: result.data, selectedEvent: result.data[0] }))
       .catch(error => this.setState({ error }))
   }
 
