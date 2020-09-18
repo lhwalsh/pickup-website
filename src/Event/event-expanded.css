@@ -3,9 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: white;
-  border-width: 5px;
-  border-style: solid;
+  border: 5px solid #6D737A;
   border-radius: 25px;
   margin: 75px 75px;
   width: 1200px;

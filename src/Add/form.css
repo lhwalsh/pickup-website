@@ -1,7 +1,5 @@
 .form-box {
-  border: white;
-  border-width: 5px;
-  border-style: solid;
+  border: 5px solid white;
   border-radius: 25px;
   margin: 75px 75px;
   width: 1200px;
