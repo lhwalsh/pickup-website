@@ -1,14 +1,18 @@
 .event-preview {
   display: flex;
   border-bottom: 2px solid black;
-  margin: 20px 75px 0px 75px;
-  width: 1000px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.event-contents {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
 }
 
-.title {
+.title-preview {
   margin-left: 20px;
   font-size: 40px;
   font-weight: 435;
@@ -17,11 +21,11 @@
   font-family: "Baloo Tammudu 2";
 }
 
-.description {
+.description-preview {
   margin-left: 20px;
   color: #6D737A;
   text-align: left;
-  font-size: 25;
+  font-size: 25px;
   font-family: "Baloo Tammudu 2";
 }
 

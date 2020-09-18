@@ -12,9 +12,12 @@ class Table extends Component {
 
     this.state = {
       events: [],
+      selectedEvent: null,
+      error: null
     };
 
     this.fetchEvents = this.fetchEvents.bind(this)
+    this.setSelectedEvent = this.setSelectedEvent.bind(this)
     this.removeEvent = this.removeEvent.bind(this)
     this.addEvent = this.addEvent.bind(this)
   }
@@ -29,6 +32,10 @@ class Table extends Component {
       .catch(error => this.setState({ error }))
   }
 
+  setSelectedEvent = (selectedEvent) => () => {
+    this.setState({ selectedEvent })
+  }
+
   removeEvent = (id) =>  {
     this.setState({ events: this.state.events.filter((event) => event.id !== id) })
   }
@@ -39,19 +46,27 @@ class Table extends Component {
   }
 
   render() {
-    const { events, error } = this.state;
+    const { events, selectedEvent, error } = this.state;
 
     return(
       <div className="table">
-        {error
-          ? "Failed to find events"
-          : events.map(event =>
-            <div key={event.id}>
-              <Event event={event} removeEvent={this.removeEvent} />
-            </div>
-          )
+        <div className="events-preview">
+          {error
+            ? "Failed to find events"
+            : events.map(event =>
+              <Event
+                key={event.id}
+                event={event}
+                removeEvent={this.removeEvent}
+                preview={true}
+                setSelectedEvent={this.setSelectedEvent}
+              />
+            )
+          }
+        </div>
+        {selectedEvent &&
+          <Event event={selectedEvent} preview={false} />
         }
-        <Add addEvent={this.addEvent} />
       </div>
     )
   }
