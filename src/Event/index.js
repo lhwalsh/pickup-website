@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import EventExpanded from './event-expanded'
 import EventPreview from './event-preview'
 import './index.css'

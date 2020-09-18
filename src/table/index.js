@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Event from '../Event';
-import Add from '../Add';
 import './index.css';
 
 const BASE_URL = "https://pickup-app-backend.herokuapp.com/api/";
