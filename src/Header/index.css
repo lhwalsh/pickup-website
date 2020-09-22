@@ -1,0 +1,18 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.home {
+  margin: 15px 0px 0px 40px;
+  display: block;
+  font-size: 60px;
+  color: white;
+  font-family: "Baloo Tammudu 2";
+  font-weight: bold;
+}
+
+.add-icon {
+  margin: 30px 40px 0px 0px;
+}
