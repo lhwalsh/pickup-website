@@ -1,9 +1,0 @@
-.add-button {
-  margin: 50px 0px;
-  size: 500;
-}
-
-.add-button:hover {
-  opacity: .7;
-  cursor: pointer;
-}
