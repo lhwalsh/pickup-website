@@ -17,6 +17,11 @@ const formatTime = (moment) => {
   return (moment.utcOffset("-07:00").format("HH:mm:00"))
 }
 
+const formatDate = (date) => {
+  if (date == null) return ""
+  return (date.toString())
+}
+
 class Create extends Component {
   constructor(props) {
     super(props)
@@ -40,8 +45,8 @@ class Create extends Component {
     this.changeDate = this.changeDate.bind( this )
   }
 
-  createEvent() {
-    const { addEvent } = this.props
+  createEvent(event) {
+    event.preventDefault();
 
     const {
       start_time,
@@ -54,17 +59,13 @@ class Create extends Component {
       description: this.description.current.value,
       people: this.people.current.value,
       location: this.location.current.value,
-      date: date.toString(),
+      date: formatDate(date),
       start_time: formatTime(start_time),
       end_time: formatTime(end_time),
       category: this.category.current.value
     }
 
-    this.props.setShowAddButtonTrue();
-    return (axios.post(
-      `${BASE_URL}events/`,
-      post_params
-    )).then(response => addEvent(response.data))
+    axios.post(`${BASE_URL}events/`, post_params)
   }
 
   changeStartTime(value) {
