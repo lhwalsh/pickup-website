@@ -8,3 +8,22 @@
   background: rgb(34,193,195);
   background: linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(204,242,244,1) 15%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
 }
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.home {
+  margin: 15px 0px 0px 40px;
+  display: block;
+  font-size: 60px;
+  color: white;
+  font-family: "Baloo Tammudu 2";
+  font-weight: bold;
+}
+
+.add-icon {
+  margin: 30px 40px 0px 0px;
+}
