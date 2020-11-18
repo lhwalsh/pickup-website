@@ -18,7 +18,6 @@ class Table extends Component {
     this.fetchEvents = this.fetchEvents.bind(this)
     this.setSelectedEvent = this.setSelectedEvent.bind(this)
     this.removeEvent = this.removeEvent.bind(this)
-    this.addEvent = this.addEvent.bind(this)
   }
 
   componentDidMount() {
