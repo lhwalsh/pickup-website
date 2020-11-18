@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
+import {
+  Redirect
+} from "react-router-dom";
 import moment from 'moment'
 import 'rc-time-picker/assets/index.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -29,7 +32,8 @@ class Create extends Component {
     this.state = {
       start_time: null,
       end_time: null,
-      date: null
+      date: null,
+      redirect: false
     }
 
     this.title = React.createRef();
@@ -40,6 +44,7 @@ class Create extends Component {
     this.category = React.createRef();
 
     this.createEvent = this.createEvent.bind(this)
+    this.renderRedirect = this.renderRedirect.bind(this)
     this.changeStartTime = this.changeStartTime.bind(this)
     this.changeEndTime = this.changeEndTime.bind(this)
     this.changeDate = this.changeDate.bind( this )
@@ -66,6 +71,14 @@ class Create extends Component {
     }
 
     axios.post(`${BASE_URL}events/`, post_params)
+
+    this.setState({ redirect: true })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/table' />
+    }
   }
 
   changeStartTime(value) {
@@ -142,7 +155,10 @@ class Create extends Component {
             Category:
             <input type="text" ref={this.category} />
           </label>
-          <button type="submit">Submit</button>
+          <div>
+            {this.renderRedirect()}
+            <button type="submit">Submit</button>
+          </div>
         </form>
       </div>
     )
