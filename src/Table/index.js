@@ -39,11 +39,6 @@ class Table extends Component {
     this.setState({ events: this.state.events.filter((event) => event.id !== id) })
   }
 
-  addEvent = (event) => {
-    const { events } = this.state
-    this.setState({ events: [...events, event] })
-  }
-
   render() {
     const { events, selectedEvent, error } = this.state;
 
