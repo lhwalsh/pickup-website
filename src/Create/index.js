@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
-import { Redirect } from "react-router-dom";
 import moment from 'moment'
 import 'rc-time-picker/assets/index.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -30,8 +29,7 @@ class Create extends Component {
     this.state = {
       start_time: null,
       end_time: null,
-      date: null,
-      redirect: false
+      date: null
     }
 
     this.title = React.createRef();
@@ -67,7 +65,7 @@ class Create extends Component {
       category: this.category.current.value
     }
 
-    axios.post(`${BASE_URL}events/`, post_params)
+    axios.post(`${BASE_URL}events/`, post_params).then((response) => this.props.addEvent(response))
 
     this.props.toggle();
   }
