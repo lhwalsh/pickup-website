@@ -16,6 +16,7 @@ class Table extends Component {
     };
 
     this.fetchEvents = this.fetchEvents.bind(this)
+    this.addEvents = this.addEvents.bind(this)
     this.setSelectedEvent = this.setSelectedEvent.bind(this)
     this.removeEvent = this.removeEvent.bind(this)
   }
@@ -25,9 +26,14 @@ class Table extends Component {
   }
 
   fetchEvents = () => {
-    axios(`${BASE_URL}events`)
-      .then(result => this.setState({ events: result.data, selectedEvent: result.data[0] }))
-      .catch(error => this.setState({ error }))
+    axios(`${BASE_URL}/events`)
+      .then(result => this.addEvents(result))
+      .catch(error => this.setState({ error, loading: false }))
+  }
+
+  addEvents = (result) => () => {
+    this.props.setEvents(result.data)
+    this.setState({ selectedEvent: result.data[0], loading: false })
   }
 
   setSelectedEvent = (selectedEvent) => () => {
@@ -39,7 +45,8 @@ class Table extends Component {
   }
 
   render() {
-    const { events, selectedEvent, error } = this.state;
+    const { selectedEvent, error, loading } = this.state;
+    const { events } = this.props
 
     return(
       <div className="table">

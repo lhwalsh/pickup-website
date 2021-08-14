@@ -9,13 +9,26 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { seen: false }
+    this.state = { 
+      seen: false,
+      events: []
+    }
 
     this.toggleCreate = this.toggleCreate.bind(this)
+    this.addEvent = this.addEvent.bind(this)
+    this.setEvents = this.setEvents.bind(this)
   }
 
   toggleCreate = () => {
     this.setState({ seen: !this.state.seen });
+  }
+
+  addEvent = (event) => {
+    this.setState({ events: this.state.events.concat(event) })
+  }
+
+  setEvents = (events) => {
+    this.setState({ events })
   }
 
   render() {
@@ -29,7 +42,7 @@ class App extends Component {
             }
           </div>
           {this.state.seen ? <Create toggle={this.toggleCreate} /> : null}
-          <Table />
+          <Table events={this.state.events} setEvents={this.setEvents} />
       </div>
     );
   }
