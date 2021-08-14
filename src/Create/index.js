@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
-import {
-  Redirect
-} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import moment from 'moment'
 import 'rc-time-picker/assets/index.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -44,7 +42,6 @@ class Create extends Component {
     this.category = React.createRef();
 
     this.createEvent = this.createEvent.bind(this)
-    this.renderRedirect = this.renderRedirect.bind(this)
     this.changeStartTime = this.changeStartTime.bind(this)
     this.changeEndTime = this.changeEndTime.bind(this)
     this.changeDate = this.changeDate.bind( this )
@@ -72,13 +69,7 @@ class Create extends Component {
 
     axios.post(`${BASE_URL}events/`, post_params)
 
-    this.setState({ redirect: true })
-  }
-
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/table' />
-    }
+    this.props.toggle();
   }
 
   changeStartTime(value) {
@@ -95,71 +86,72 @@ class Create extends Component {
 
   render() {
     return(
-      <div className="form-box">
-        <h1>Add Event</h1>
-        <form className="add-form" onSubmit={this.createEvent}>
-          <label className="form-add-item">
-            Title:
-            <input type="text" ref={this.title} />
-          </label>
-          <label className="form-add-item">
-            Description:
-            <input type="textarea" ref={this.description} />
-          </label>
-          <label className="form-add-item">
-            People:
-            <input type="text" ref={this.people} />
-          </label>
-          <label className="form-add-item">
-            Location:
-            <input type="text" ref={this.location} />
-          </label>
-          <label className="form-add-item">
-            Date:
-            <DatePicker
-              name="date"
-              selected={ this.state.date }
-              onChange={ this.changeDate }
-              className="date-picker"
-            />
-          </label>
-          <label className="form-add-item">
-            Start Time:
-            <TimePicker
-              name="start_time"
-              value={this.state.start_time}
-              onChange={this.changeStartTime}
-              className="time-picker"
-              showSecond={false}
-              defaultValue={now}
-              format={format}
-              use12Hours
-              inputReadOnly
-            />
-          </label>
-          <label className="form-add-item">
-            End Time:
-            <TimePicker
-              name="end_time"
-              value={this.state.end_time}
-              onChange={this.changeEndTime}
-              className="time-picker"
-              showSecond={false}
-              defaultValue={now}
-              format={format}
-              use12Hours
-              inputReadOnly
-            />
-          </label>
-          <label className="form-add-item">
-            Category:
-            <input type="text" ref={this.category} />
-          </label>
-          <div>
-            {this.renderRedirect()}
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+      <div className="modal">
+        <div className="form-box">
+          <h1>Add Event</h1>
+          <form className="add-form" onSubmit={this.createEvent}>
+            <label className="form-add-item">
+              Title:
+              <input type="text" ref={this.title} />
+            </label>
+            <label className="form-add-item">
+              Description:
+              <input type="textarea" ref={this.description} />
+            </label>
+            <label className="form-add-item">
+              People:
+              <input type="text" ref={this.people} />
+            </label>
+            <label className="form-add-item">
+              Location:
+              <input type="text" ref={this.location} />
+            </label>
+            <label className="form-add-item">
+              Date:
+              <DatePicker
+                name="date"
+                selected={ this.state.date }
+                onChange={ this.changeDate }
+                className="date-picker"
+              />
+            </label>
+            <label className="form-add-item">
+              Start Time:
+              <TimePicker
+                name="start_time"
+                value={this.state.start_time}
+                onChange={this.changeStartTime}
+                className="time-picker"
+                showSecond={false}
+                defaultValue={now}
+                format={format}
+                use12Hours
+                inputReadOnly
+              />
+            </label>
+            <label className="form-add-item">
+              End Time:
+              <TimePicker
+                name="end_time"
+                value={this.state.end_time}
+                onChange={this.changeEndTime}
+                className="time-picker"
+                showSecond={false}
+                defaultValue={now}
+                format={format}
+                use12Hours
+                inputReadOnly
+              />
+            </label>
+            <label className="form-add-item">
+              Category:
+              <input type="text" ref={this.category} />
+            </label>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
