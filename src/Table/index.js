@@ -3,16 +3,16 @@ import axios from 'axios';
 import Event from '../Event';
 import './index.css';
 
-const BASE_URL = "https://pickup-app-backend.herokuapp.com/api/";
+const BASE_URL = "https://pickup-app-backend.herokuapp.com/api";
 
 class Table extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      events: [],
       selectedEvent: null,
-      error: null
+      error: null,
+      loading: true
     };
 
     this.fetchEvents = this.fetchEvents.bind(this)
@@ -51,17 +51,19 @@ class Table extends Component {
     return(
       <div className="table">
         <div className="events-preview">
-          {error
-            ? "Failed to find events"
-            : events.map(event =>
-              <Event
-                key={event.id}
-                event={event}
-                removeEvent={this.removeEvent}
-                preview={true}
-                setSelectedEvent={this.setSelectedEvent}
-              />
-            )
+          {loading 
+            ? "Loading"
+            : error
+              ? "Failed to find events"
+              : events.map(event =>
+                <Event
+                  key={event.id}
+                  event={event}
+                  removeEvent={this.removeEvent}
+                  preview={true}
+                  setSelectedEvent={this.setSelectedEvent}
+                />
+              )
           }
         </div>
         {selectedEvent &&
