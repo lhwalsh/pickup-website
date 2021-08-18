@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
+    this.state = {
       seen: false,
       events: []
     }
@@ -37,8 +37,8 @@ class App extends Component {
           <div  className="Header">
             <div className="home">Pickup</div>
             {this.state.seen
-              ? <IoIosCloseCircleOutline size={70} color="white" onClick={this.toggleCreate} />
-              : <IoIosAddCircleOutline size={70} color="white" onClick={this.toggleCreate} />
+              ? <IoIosCloseCircleOutline size={70} color="white" onClick={this.toggleCreate} className="icon" />
+              : <IoIosAddCircleOutline size={70} color="white" onClick={this.toggleCreate} className="icon" />
             }
           </div>
           {this.state.seen ? <Create toggle={this.toggleCreate} /> : null}
