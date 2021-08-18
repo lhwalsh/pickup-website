@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: rgb(34,193,195);
   background: linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(204,242,244,1) 15%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
 }
 
