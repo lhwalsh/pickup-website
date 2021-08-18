@@ -31,7 +31,7 @@ class Table extends Component {
       .catch(error => this.setState({ error, loading: false }))
   }
 
-  addEvents = (result) => () => {
+  addEvents = (result) => {
     this.props.setEvents(result.data)
     this.setState({ selectedEvent: result.data[0], loading: false })
   }
@@ -51,7 +51,7 @@ class Table extends Component {
     return(
       <div className="table">
         <div className="events-preview">
-          {loading 
+          {loading
             ? "Loading"
             : error
               ? "Failed to find events"
