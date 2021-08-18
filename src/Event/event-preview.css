@@ -17,6 +17,10 @@
   overflow: hidden;
 }
 
+.selected {
+  background: rgb(218, 244, 253);
+}
+
 .title-preview {
   margin-left: 20px;
   font-size: 40px;

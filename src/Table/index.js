@@ -62,6 +62,7 @@ class Table extends Component {
                   removeEvent={this.removeEvent}
                   preview={true}
                   setSelectedEvent={this.setSelectedEvent}
+                  selected={selectedEvent.id === event.id}
                 />
               )
           }
