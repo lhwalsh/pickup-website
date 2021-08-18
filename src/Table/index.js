@@ -41,7 +41,7 @@ class Table extends Component {
   }
 
   removeEvent = (id) =>  {
-    this.setState({ events: this.state.events.filter((event) => event.id !== id) })
+    this.props.setEvents(this.props.events.filter((event) => event.id !== id))
   }
 
   render() {
