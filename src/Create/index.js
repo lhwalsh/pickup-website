@@ -48,6 +48,7 @@ class Create extends Component {
   createEvent(event) {
     event.preventDefault();
 
+    const { addEvent, toggle } = this.props
     const {
       start_time,
       end_time,
@@ -65,9 +66,10 @@ class Create extends Component {
       category: this.category.current.value
     }
 
-    axios.post(`${BASE_URL}events/`, post_params).then((response) => this.props.addEvent(response))
+    axios.post(`${BASE_URL}events/`, post_params).then((response) => addEvent(response.data))
 
-    this.props.toggle();
+    // might need to add this in the arrow method to only resolve after the api call finishes
+    toggle()
   }
 
   changeStartTime(value) {

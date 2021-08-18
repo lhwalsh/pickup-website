@@ -41,7 +41,7 @@ class App extends Component {
               : <IoIosAddCircleOutline size={70} color="white" onClick={this.toggleCreate} className="icon" />
             }
           </div>
-          {this.state.seen ? <Create toggle={this.toggleCreate} /> : null}
+          {this.state.seen ? <Create toggle={this.toggleCreate} addEvent={this.addEvent} /> : null}
           <Table events={this.state.events} setEvents={this.setEvents} />
       </div>
     );
