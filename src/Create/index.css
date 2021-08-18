@@ -11,6 +11,7 @@
   display: flex;
   border: 2px solid black;
   background-color: white;
+  flex-direction: column;
 }
 
 .form-box h1 {
@@ -20,17 +21,9 @@
 .form-box .add-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 
 form .form-add-item {
+  margin: 15px;
   text-align: right;
-}
-
-form .form-add-item input {
-  margin: 45px 400px 45px 100px;
-}
-
-form .form-add-item .time-picker input {
-  margin: 0em;
 }
