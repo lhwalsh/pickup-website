@@ -1,6 +1,8 @@
 import React from 'react';
 import './event-expanded.css';
 
+const formatTime = (time) => new Date(time).toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' })
+
 const EventExpanded = ({ event }) =>
   <div className="event-expanded">
     <span className="title-expanded">
@@ -19,10 +21,10 @@ const EventExpanded = ({ event }) =>
       {`Date: ${event.date}`}
     </span>
     <span className="description-expanded">
-      {`Start Time: ${event.start_time}`}
+      {`Start Time: ${formatTime(event.start_time)}`}
     </span>
     <span className="description-expanded">
-      {`Start Time: ${event.end_time}`}
+      {`Start Time: ${formatTime(event.end_time)}`}
     </span>
     <span className="description-expanded">
       {`Category: ${event.category}`}
