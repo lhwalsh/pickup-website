@@ -10,22 +10,22 @@ const EventExpanded = ({ event }) =>
       {event.description}
     </span>
     <span className="description-expanded">
-      {event.people}
+      {`People: ${event.people}`}
     </span>
     <span className="description-expanded">
-      {event.location}
+      {`Location: ${event.location}`}
     </span>
     <span className="description-expanded">
-      {event.date}
+      {`Date: ${event.date}`}
     </span>
     <span className="description-expanded">
-      {event.start_time}
+      {`Start Time: ${event.start_time}`}
     </span>
     <span className="description-expanded">
-      {event.end_time}
+      {`Start Time: ${event.end_time}`}
     </span>
     <span className="description-expanded">
-      {event.category}
+      {`Category: ${event.category}`}
     </span>
   </div>
 
