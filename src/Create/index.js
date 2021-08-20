@@ -66,10 +66,12 @@ class Create extends Component {
       category: this.category.current.value
     }
 
-    axios.post(`${BASE_URL}events/`, post_params).then((response) => addEvent(response.data))
-
-    // might need to add this in the arrow method to only resolve after the api call finishes
-    toggle()
+    axios.post(`${BASE_URL}events/`, post_params)
+      .then((response) => {
+        toggle();
+        addEvent(response.data);
+      })
+      .catch(error => console.log(`Failed to create event. Error: ${error}`))
   }
 
   changeStartTime(value) {
