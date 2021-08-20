@@ -63,12 +63,13 @@ class Table extends Component {
                   preview={true}
                   setSelectedEvent={this.setSelectedEvent}
                   selected={selectedEvent.id === event.id}
+                  className="event-preview"
                 />
               )
           }
         </div>
         {selectedEvent &&
-          <Event event={selectedEvent} preview={false} />
+          <Event event={selectedEvent} preview={false} className="event-expanded" />
         }
       </div>
     )
