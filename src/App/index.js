@@ -16,6 +16,7 @@ class App extends Component {
 
     this.toggleCreate = this.toggleCreate.bind(this)
     this.addEvent = this.addEvent.bind(this)
+    this.sortEventsByDate = this.sortEventsByDate.bind(this)
     this.setEvents = this.setEvents.bind(this)
   }
 
@@ -24,7 +25,15 @@ class App extends Component {
   }
 
   addEvent = (event) => {
-    this.setState({ events: this.state.events.concat(event) })
+    this.setState((state) => ({ events: state.events.concat(event).sort((a, b) => this.sortEventsByDate(a, b)) }))
+  }
+
+  sortEventsByDate = (a, b) => {
+    if (Date.parse(a.date) === Date.parse(b.date)) {
+      return Date.parse(b.start_time) - Date.parse(a.start_time)
+    } else {
+      return Date.parse(b.date) - Date.parse(a.date)
+    }
   }
 
   setEvents = (events) => {
