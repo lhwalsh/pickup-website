@@ -24,7 +24,7 @@ const EventExpanded = ({ event }) =>
       {`Start Time: ${formatTime(event.start_time)}`}
     </span>
     <span className="description-expanded">
-      {`Start Time: ${formatTime(event.end_time)}`}
+      {`End Time: ${formatTime(event.end_time)}`}
     </span>
     <span className="description-expanded">
       {`Category: ${event.category}`}
