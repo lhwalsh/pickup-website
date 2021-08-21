@@ -1,7 +1,7 @@
 import React from 'react';
 import './event-expanded.css';
 
-const formatTime = (time) => new Date(time).toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' })
+const formatTime = (time) => time == null ? "" : new Date(time).toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' })
 
 const EventExpanded = ({ event }) =>
   <div className="event-expanded">
