@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import TimePicker from 'rc-time-picker';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker
+} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 import DatePicker from 'react-datepicker';
-import moment from 'moment'
-import 'rc-time-picker/assets/index.css';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import './index.css'
 
 const BASE_URL = "https://pickup-app-backend.herokuapp.com/api/";
 
-const format = 'hh:mm a';
-const now = moment().hour(0).minute(0);
+const formatTime = (time) => {
+  if (time == null) return ""
 
-const formatTime = (moment) => {
-  if (moment == null) return ""
-  return (moment.utcOffset("-07:00").format("HH:mm:00"))
+  return time.toISOString();
 }
 
 const formatDate = (date) => {
   if (date == null) return ""
+
   return (date.toString())
 }
 
@@ -119,31 +120,33 @@ class Create extends Component {
             </label>
             <label className="form-add-item">
               Start Time:
-              <TimePicker
-                name="start_time"
-                value={this.state.start_time}
-                onChange={this.changeStartTime}
-                className="time-picker"
-                showSecond={false}
-                defaultValue={now}
-                format={format}
-                use12Hours
-                inputReadOnly
-              />
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardTimePicker
+                  style={{ width: 150 }}
+                  margin="normal"
+                  label=""
+                  value={this.state.start_time}
+                  onChange={this.changeStartTime}
+                  KeyboardButtonProps={{
+                    "aria-label": "change time"
+                  }}
+                />
+              </MuiPickersUtilsProvider>
             </label>
             <label className="form-add-item">
               End Time:
-              <TimePicker
-                name="end_time"
-                value={this.state.end_time}
-                onChange={this.changeEndTime}
-                className="time-picker"
-                showSecond={false}
-                defaultValue={now}
-                format={format}
-                use12Hours
-                inputReadOnly
-              />
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardTimePicker
+                  style={{ width: 150 }}
+                  margin="normal"
+                  label=""
+                  value={this.state.end_time}
+                  onChange={this.changeEndTime}
+                  KeyboardButtonProps={{
+                    "aria-label": "change time"
+                  }}
+                />
+              </MuiPickersUtilsProvider>
             </label>
             <label className="form-add-item">
               Category:
