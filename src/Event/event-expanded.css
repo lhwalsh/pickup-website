@@ -1,27 +1,19 @@
 .event-expanded {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  flex-shrink: 10;
   border-left: 5px solid #6D737A;
-  width: 900px;
-  overflow: hidden;
 }
 
 .title-expanded {
-  margin-left: 20px;
   font-size: 70px;
   font-weight: 435;
-  height: 60px;
   color: #495159;
   font-family: "Baloo Tammudu 2";
 }
 
 .description-expanded {
-  margin-left: 20px;
   color: #6D737A;
-  text-align: left;
   font-size: 30px;
   font-family: "Baloo Tammudu 2";
 }
